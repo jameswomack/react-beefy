@@ -1,0 +1,14 @@
+{
+  "mocha": true,
+  "node": true,
+  "browser": true,
+  "globals": {
+    "expect": true,
+    "moquire": true,
+    "__testName": true,
+    "moscribe": true,
+    "TestUtils": true
+  },
+  "expr": true,
+  "esnext": true
+}

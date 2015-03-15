@@ -1,0 +1,66 @@
+{
+  "name": "react-beefy",
+  "version": "1.0.0",
+  "description": "The JavaScript library for building user interfaces, now with more protein.",
+  "main": "index.js",
+  "scripts": {
+    "start": "beefy js/index.jsx:js/index.js --open --live --index=html/index.html -- -d -t reactify",
+    "jshint": "jsxhint --reporter node_modules/jshint-stylish/stylish.js js/*.js*",
+    "test": "npm run jshint && node --harmony ./node_modules/.bin/_mocha test/specs/**/*.js*"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        },
+        {
+          "everything": true
+        }
+      ],
+      [
+        "babelify"
+      ],
+      [
+        "brfs"
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameswomack/react-beefy.git"
+  },
+  "keywords": [
+    "react",
+    "beefy",
+    "browserify"
+  ],
+  "author": "James Womack <me@jameswomack.com> (http://womack.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jameswomack/react-beefy/issues"
+  },
+  "homepage": "https://github.com/jameswomack/react-beefy",
+  "devDependencies": {
+    "babel": "^4.7.12",
+    "babelify": "^5.0.4",
+    "beefy": "^2.1.3",
+    "brfs": "^1.4.0",
+    "browserify": "^9.0.3",
+    "chai": "^2.1.1",
+    "jshint": "^2.6.3",
+    "jshint-stylish": "^1.0.1",
+    "jsxhint": "^0.12.1",
+    "mocha": "^2.2.1",
+    "react-tools": "^0.13.0",
+    "reactify": "^1.1.0",
+    "sinon": "^1.14.0",
+    "sinon-chai": "^2.7.0"
+  },
+  "dependencies": {
+    "change-case": "^2.2.0",
+    "domready": "^1.0.7",
+    "react": "^0.13.0"
+  }
+}
