@@ -1,0 +1,13 @@
+{
+  "loadEagerly": [
+    "./js/*.js",
+    "./js/*.jsx",
+    "./node_modules/bunyan/lib/*.js",
+    "./node_modules/react/**/*.js",
+    "./node_modules/change-case/change-case.js"
+  ],
+
+  "plugins": {
+    "node": {}
+  }
+}

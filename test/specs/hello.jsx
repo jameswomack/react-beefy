@@ -2,8 +2,11 @@ var Hello = moquire('hello');
 
 Describe(function(){
   It(function shouldBeA_Component(){
-    var renderedDocument = TestUtils.renderIntoDocument(<Hello/>);
-    var helloComponent = TestUtils.scryRenderedComponentsWithType(renderedDocument, Hello);
-    expect(TestUtils.isDOMComponent(helloComponent)).to.be.true;
+    var packageJSON = moquire('..', 'package.json');
+    var shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<Hello {...packageJSON} />);
+    var helloRenderResult = shallowRenderer.getRenderOutput();
+    log(helloRenderResult);
+    expect(helloRenderResult._store.props.children).to.equal(packageJSON.name);
   });
 });

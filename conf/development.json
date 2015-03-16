@@ -1,0 +1,10 @@
+{
+  "name": "rivets-beefy-beast-mode",
+  "streams": [
+     {
+       "type": "raw",
+       "level": "debug",
+       "pretty": true
+     }
+  ]
+}

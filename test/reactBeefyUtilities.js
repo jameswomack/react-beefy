@@ -1,11 +1,20 @@
+// TODO: Break up this file into logical components
+
 /*
  * Core modules
  *
  */
 var path = require('path');
 var assert = require('assert');
+var util = require('util');
+
 /*
  * Local Modules
+ *
+ */
+
+/*
+ * NPM Modules
  *
  */
 var ChangeCase = require('change-case');
@@ -26,9 +35,22 @@ assert.ok(typeof cwd === 'string', 'cwd is not a string?');
 
 global.join = path.join;
 
-global.moquire = function moquire(requirePath){
-  assert.ok(typeof requirePath === 'string', 'moquire passed a non-string requirePath');
-  return require(join(cwd, 'js', requirePath));
+global.moquire = function moquire(...requirePaths){
+  assert.ok(requirePaths.length >= 0, 'moquire requires at least one path component');
+  assert.ok(typeof requirePaths[0] === 'string', 'moquire passed a non-string requirePath');
+  return require(join(cwd, 'js', ...requirePaths));
+};
+
+var logger = global.moquire('logger');
+var _log = global.moquire('logger').debug.bind(logger);
+global.log = function log(object, tag){
+  var safeObject = Object.keys(object).reduce(function(context, key){
+    var value = object[key];
+    var safeValue = util.isFunction(value) ? value.toString() : value;
+    context[key] = safeValue;
+    return context;
+  }, {});
+  global.moquire('logger').debug.call(logger, safeObject, tag);
 };
 
 Object.defineProperty(global, '__testName', {

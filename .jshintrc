@@ -10,5 +10,6 @@
     "TestUtils": true
   },
   "expr": true,
-  "esnext": true
+  "esnext": true,
+  "sub": true
 }

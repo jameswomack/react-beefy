@@ -8,14 +8,15 @@ var assert = require('assert');
 /*
  * NPM Modules
  *
- */
+*/
+// TODO: Fix this spacing
 var React    = require('react');
 
 /*
  * Local Modules
  *
  */
-// TODO - rename
+// TODO Rename this file
 var propsAsserter = require('./propsValidator');
 
 

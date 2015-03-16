@@ -1,0 +1,8 @@
+{
+ "streams": [
+    {
+      "path": "log/production.log",
+      "level": "info"
+    }
+  ]
+}
